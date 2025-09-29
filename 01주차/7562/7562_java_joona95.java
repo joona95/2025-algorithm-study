@@ -76,9 +76,9 @@ public class Main {
             int answer = main.bfs(n, rootX, rootY, destinationX, destinationY);
 
             bw.write(answer + "\n");
-            bw.flush();
         }
 
+        bw.flush();
         br.close();
         bw.close();
     }
