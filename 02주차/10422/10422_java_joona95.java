@@ -6,22 +6,21 @@ import java.io.OutputStreamWriter;
 
 public class Main {
 
-    public long solution(int l) {
+    public static int MAX = 5000;
+    public static int MOD = 1_000_000_007;
+    public static long[] dp;
 
-        if (l % 2 != 0) {
-            return 0;
-        }
+    public void initDP() {
 
-        long[] dp = new long[l + 1];
+        dp = new long[MAX + 1];
         dp[0] = 1;
         dp[1] = 1;
-        for (int i = 2; i <= l / 2; i++) {
+
+        for (int i = 2; i <= MAX / 2; i++) {
             for (int j = 1; j <= i; j++) {
-                dp[i] = (dp[i] + dp[i - j] * dp[j - 1]) % 1000000007;
+                dp[i] = (dp[i] + dp[i - j] * dp[j - 1]) % MOD;
             }
         }
-
-        return dp[l / 2];
     }
 
     public static void main(String[] args) throws IOException {
@@ -31,10 +30,12 @@ public class Main {
 
         Main main = new Main();
 
+        main.initDP();
+
         int t = Integer.parseInt(br.readLine());
         for (int i = 0; i < t; i++) {
             int l = Integer.parseInt(br.readLine());
-            long answer = main.solution(l);
+            long answer = l % 2 == 0 ? dp[l / 2] : 0L;
             bw.write(answer + "\n");
         }
 
