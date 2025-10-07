@@ -12,7 +12,7 @@ public class Main {
 
     public void initDP() {
 
-        dp = new long[MAX + 1];
+        dp = new long[MAX / 2 + 1];
         dp[0] = 1;
         dp[1] = 1;
 
