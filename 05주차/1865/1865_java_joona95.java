@@ -32,7 +32,7 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             for (Edge edge : graph) {
-                if (distance[edge.s] != Integer.MAX_VALUE && distance[edge.e] > distance[edge.s] + edge.t) {
+                if (distance[edge.e] > distance[edge.s] + edge.t) {
                     if (i == n - 1) {
                         return true;
                     }
