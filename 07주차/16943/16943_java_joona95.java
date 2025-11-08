@@ -29,17 +29,6 @@ public class Main {
         }
     }
 
-    private static boolean isGeumMinSu(int num) {
-        while (num > 0) {
-            int remain = num % 10;
-            if (remain != 4 && remain != 7) {
-                return false;
-            }
-            num /= 10;
-        }
-        return true;
-    }
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
